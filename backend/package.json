@@ -1,0 +1,20 @@
+{
+  "name": "cutoff-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test tests/unit.*.test.js tests/local.*.test.js",
+    "test:unit": "node --test tests/unit.*.test.js",
+    "test:live": "node --test tests/live.*.test.js",
+    "test:deployed": "node --test tests/deployed.test.js"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.1145.0",
+    "@aws-sdk/client-dynamodb": "^3.1145.0",
+    "@aws-sdk/client-lambda": "^3.1145.0",
+    "@aws-sdk/lib-dynamodb": "^3.1145.0"
+  }
+}

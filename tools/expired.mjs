@@ -1,0 +1,12 @@
+import { chromium } from 'playwright-core';
+const b = await chromium.launch({ executablePath: '/home/rogerkorantenng/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome', args: ['--no-sandbox'] });
+const ctx = await b.newContext({ viewport: { width: 1280, height: 900 } });
+const old = String(Date.now() - 400 * 86400000);
+await ctx.addInitScript((old) => { localStorage.setItem('cutoff-session', 'previewsession01'); localStorage.setItem('b-scheduler-trial-start', old); localStorage.setItem('b-core-trial-start', old); localStorage.setItem('b-grid-trial-start', old); }, old);
+const p = await ctx.newPage();
+const logs=[]; p.on('pageerror', (e) => logs.push('pageerror ' + e.message.slice(0,200))); p.on('console', m=>{ if(['error','warning'].includes(m.type())) logs.push(m.type()+' '+m.text().slice(0,200)); });
+await p.goto(process.argv[2] ?? 'http://127.0.0.1:5176/', { waitUntil: 'networkidle' }); await p.waitForTimeout(2500);
+console.log(logs.join('\n'));
+console.log('scheduler events in DOM:', await p.locator('.b-sch-event').count(), '| body text has expired:', /expired/i.test(await p.locator('body').innerText()));
+await p.screenshot({ path: '/tmp/claude-1000/-home-rogerkorantenng-dev-Hackathons/006fd40b-a300-45e1-b8f0-b67c3549da0d/scratchpad/exp.png' });
+await b.close();

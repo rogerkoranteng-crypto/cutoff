@@ -1,0 +1,24 @@
+import { chromium } from 'playwright-core';
+const b = await chromium.launch({ executablePath: '/home/rogerkorantenng/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome', args: ['--no-sandbox'] });
+const ctx = await b.newContext({ viewport: { width: 1280, height: 1000 } });
+await ctx.addInitScript(() => { localStorage.setItem('cutoff-session', 'previewsession04'); localStorage.setItem('cutoff-theme','light'); });
+const p = await ctx.newPage();
+p.on('pageerror', (e) => console.log('pageerror', e.message));
+await p.goto('http://127.0.0.1:5176/', { waitUntil: 'networkidle' }); await p.waitForTimeout(1500);
+const blk = p.locator('.b-sch-event-wrap:has-text("1004")').first();
+const bb = await blk.boundingBox();
+console.log('block', bb);
+// target: Ingrid row (row below Kwame). Find her row y.
+const ingrid = await p.locator('.b-grid-row:has-text("Ingrid")').first().boundingBox();
+console.log('ingrid row', ingrid);
+await p.mouse.move(bb.x + 30, bb.y + 20); await p.mouse.down();
+await p.mouse.move(bb.x + 60, bb.y + 20, { steps: 5 });
+await p.mouse.move(bb.x + 720, ingrid.y + 25, { steps: 12 });
+await p.waitForTimeout(300);
+await p.screenshot({ path: '/tmp/claude-1000/-home-rogerkorantenng-dev-Hackathons/006fd40b-a300-45e1-b8f0-b67c3549da0d/scratchpad/drag-mid.png' });
+console.log('tip text:', await p.locator('.b-tooltip, .b-sch-tip, .b-drag-tooltip').allInnerTexts());
+await p.mouse.up(); await p.waitForTimeout(1500);
+const r = await (await fetch('http://127.0.0.1:8787/api/board', { headers: { 'x-session': 'previewsession04' } })).json();
+console.log(r.disputes.find(d=>d.id==='FX-D-1004').handlerId, new Date(r.disputes.find(d=>d.id==='FX-D-1004').start).toISOString(), 'log:', r.log[0].title);
+console.log('toast:', await p.locator('.toast').allInnerTexts());
+await b.close();

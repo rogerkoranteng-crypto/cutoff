@@ -1,0 +1,11 @@
+node_modules/
+.aws-out/
+dist/
+*.log
+.env
+
+# QA screenshots from the build rounds — not part of the project
+screenshots/
+shots/
+.shots/
+evidence/

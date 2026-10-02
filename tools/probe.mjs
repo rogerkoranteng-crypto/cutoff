@@ -1,0 +1,10 @@
+import { chromium } from 'playwright-core';
+const [url, js] = process.argv.slice(2);
+const b = await chromium.launch({ executablePath: '/home/rogerkorantenng/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome', args: ['--no-sandbox'] });
+const ctx = await b.newContext({ viewport: { width: 1280, height: 900 } });
+await ctx.addInitScript(() => { localStorage.setItem('cutoff-session', 'previewsession01'); });
+const p = await ctx.newPage();
+p.on('pageerror', (e) => console.log('pageerror', e.message));
+await p.goto(url, { waitUntil: 'networkidle' }); await p.waitForTimeout(1500);
+console.log(JSON.stringify(await p.evaluate(js), null, 1));
+await b.close();

@@ -1,0 +1,67 @@
+/* Teal-tinted neutral scales for Bryntum's themes, so its panels, menus and tooltips sit in the same palette. */
+:root[data-theme='dark']:not(.b-nothing) {
+  --b-neutral-100: hsl(182 42% 10%);
+  --b-neutral-99: hsl(182 42% 10.9%);
+  --b-neutral-98: hsl(182 42% 11.8%);
+  --b-neutral-97: hsl(182 42% 12.7%);
+  --b-neutral-96: hsl(182 42% 13.6%);
+  --b-neutral-95: hsl(182 42% 14.5%);
+  --b-neutral-94: hsl(182 42% 15.4%);
+  --b-neutral-93: hsl(182 42% 16.3%);
+  --b-neutral-92: hsl(182 42% 17.2%);
+  --b-neutral-91: hsl(182 42% 18.1%);
+  --b-neutral-90: hsl(182 42% 19%);
+  --b-neutral-85: hsl(182 42% 23.5%);
+  --b-neutral-80: hsl(182 42% 28%);
+  --b-neutral-75: hsl(182 26% 32.5%);
+  --b-neutral-70: hsl(182 26% 37%);
+  --b-neutral-65: hsl(182 26% 41.5%);
+  --b-neutral-60: hsl(182 26% 46%);
+  --b-neutral-55: hsl(182 26% 50.5%);
+  --b-neutral-50: hsl(182 26% 55%);
+  --b-neutral-45: hsl(182 26% 59.5%);
+  --b-neutral-40: hsl(182 16% 64%);
+  --b-neutral-35: hsl(182 16% 68.5%);
+  --b-neutral-30: hsl(182 16% 73%);
+  --b-neutral-25: hsl(182 16% 77.5%);
+  --b-neutral-20: hsl(182 16% 82%);
+  --b-neutral-15: hsl(182 16% 86.5%);
+  --b-neutral-10: hsl(182 16% 91%);
+  --b-neutral-5: hsl(182 16% 95.5%);
+  --b-neutral-2: hsl(182 16% 97.3%);
+  --b-neutral-1: hsl(182 16% 98.2%);
+  --b-neutral-0: hsl(182 16% 100%);
+}
+:root[data-theme='light']:not(.b-nothing) {
+  --b-neutral-100: hsl(182 0% 100%);
+  --b-neutral-99: hsl(182 0% 99%);
+  --b-neutral-98: hsl(182 0% 98%);
+  --b-neutral-97: hsl(182 10% 97%);
+  --b-neutral-96: hsl(182 10% 96%);
+  --b-neutral-95: hsl(182 10% 95%);
+  --b-neutral-94: hsl(182 10% 94%);
+  --b-neutral-93: hsl(182 10% 93%);
+  --b-neutral-92: hsl(182 10% 92%);
+  --b-neutral-91: hsl(182 10% 91%);
+  --b-neutral-90: hsl(182 10% 90%);
+  --b-neutral-85: hsl(182 10% 85%);
+  --b-neutral-80: hsl(182 10% 80%);
+  --b-neutral-75: hsl(182 10% 75%);
+  --b-neutral-70: hsl(182 10% 70%);
+  --b-neutral-65: hsl(182 10% 65%);
+  --b-neutral-60: hsl(182 10% 60%);
+  --b-neutral-55: hsl(182 14% 55%);
+  --b-neutral-50: hsl(182 14% 50%);
+  --b-neutral-45: hsl(182 14% 45%);
+  --b-neutral-40: hsl(182 14% 40%);
+  --b-neutral-35: hsl(182 14% 35%);
+  --b-neutral-30: hsl(182 14% 30%);
+  --b-neutral-25: hsl(182 14% 25%);
+  --b-neutral-20: hsl(182 14% 20%);
+  --b-neutral-15: hsl(182 14% 15%);
+  --b-neutral-10: hsl(182 14% 10%);
+  --b-neutral-5: hsl(182 14% 5%);
+  --b-neutral-2: hsl(182 14% 2%);
+  --b-neutral-1: hsl(182 14% 1%);
+  --b-neutral-0: hsl(182 14% 0%);
+}
