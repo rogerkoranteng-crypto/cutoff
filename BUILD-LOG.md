@@ -10,7 +10,7 @@ Running log, newest at the bottom.
 - React wrapper quirk: the `features` prop is silently ignored on `BryntumScheduler`; every feature is a `<name>Feature` prop (`groupFeature`, `timeRangesFeature`, ...). Found because `scheduler.initialConfig.features` only held `regionResize`.
 - Grouped resource store: `store.records` contains group header rows. Removing "records not in my data" threw `Cannot read properties of undefined (reading 'meta')` until I skipped `isSpecialRow`.
 - PayPal: token has `invoicing` and the four disputes scopes. `GET /v1/customer/disputes` -> 200 with `items: []`. Invoice flow without sending works: create draft -> `POST /payments` (BANK_TRANSFER) -> `POST /refunds`; invoice status becomes `MARKED_AS_REFUNDED`. `POST /send` fails (422 USER_NOT_FOUND on the fake invoicer), so the app never sends.
-- Account already had webhooks from other projects; this app registers one more (8 event types).
+- The account already had webhooks registered; this adds one more (8 event types).
 
 ## Design decisions
 

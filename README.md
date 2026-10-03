@@ -50,7 +50,7 @@ Bedrock Converse, `us.anthropic.claude-sonnet-4-5-20250929-v1:0`, with six tools
 
 The model chooses; the engine (`backend/src/engine.js`) enforces. Shifts, overlaps, mandatory skills (pre-arbitration and arbitration need the `escalation` skill), pinned blocks and in-progress blocks cannot be violated by anything the model says. The same engine file runs in the Lambda, in the rule-based fallback, in the tests and in the browser's drop validator.
 
-**Bedrock rate limit disclosure.** The account allows roughly 10 requests a minute, shared with other projects. Each call uses the SDK's adaptive retry plus up to 50 seconds of our own backoff. If that is spent, or the daily cap (300 runs) is reached, the run finishes with the same engine and no model, and the log entry says "Rule-based reflow (reason)". It is a different explanation text and no tool trace, never a silent substitution. A typical live run takes 30 to 45 seconds.
+**Bedrock rate limit disclosure.** The account allows roughly 10 requests a minute. Each call uses the SDK's adaptive retry plus up to 50 seconds of our own backoff. If that is spent, or the daily cap (300 runs) is reached, the run finishes with the same engine and no model, and the log entry says "Rule-based reflow (reason)". It is a different explanation text and no tool trace, never a silent substitution. A typical live run takes 30 to 45 seconds.
 
 ## PayPal
 
